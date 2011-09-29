@@ -1,2 +1,5 @@
-<h1>Friend#add_friend</h1>
-<p>Find me in app/views/friend/add_friend.html.erb</p>
+Confirm friend request.
+<%= form_tag friend_confirm_friend_request_path, :method => :get do %>
+  <%= hidden_field "friend", "user_id", :value => params[:friend] %>
+  <%= button_to "send request", "submit_friend" %>
+<% end %>

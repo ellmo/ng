@@ -1,10 +1,14 @@
 Ng::Application.routes.draw do
 
+  get "wall/show"
+
   get "friend/index"
   get "friend/add_friend"
+  get "friend/confirm_friend_request"
   get "friend/remove_friend"
 
   resources :posts
+  resources :wall, :only => :show
 
   get "frontend/index"
   get "frontend/search"

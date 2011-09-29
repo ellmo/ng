@@ -1,4 +1,5 @@
 class FrontendController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index]
 
   def index
     if current_user

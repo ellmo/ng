@@ -1,7 +1,13 @@
+<style type="text/css">
+  table { border: 1px solid black; }
+  td { border: 1px solid black; margin: 1px; min-width: 100px; }
+</style>
+
 <table>
   <tr>
     <th>#</th>
     <th>Name</th>
+    <th>Wall</th>
     <th>Make Friends</th>
   </tr>
 
@@ -9,7 +15,20 @@
     <tr>
       <td><%= index+1 %></td>
       <td><%= user.login %></td>
-      <td><%= link_to "befriend", friend_add_friend_path({:friend => user.id.to_s}) %></td>
+      <td>
+        <% if user != current_user %>
+          <%= link_to "visit wall", user.wall %>
+        <% end %>
+      </td>
+      <td>
+        <% if user == current_user %>
+          you can't befriend yourself
+        <% elsif current_user.friends.include?( user ) %>
+          friend request already sent
+        <% else %>
+          <%= link_to "befriend", friend_add_friend_path({:friend => user.id.to_s}) %>
+        <% end %>
+      </td>
     <tr>
   <% end %>
 </table>

@@ -3,9 +3,10 @@
     <%= text_field "search", "s", :value => params[:s] %>
     <%= button_to "search", "submit_search" %>
   <% end %>
-  <%= @wall.inspect %>
+  <span style="color:green;">
+    <%= notice %>
+  </span>
+  <%= render :partial => "wall", :object => current_user.wall %> 
 <% else %>
-  <p>
-    Zawartość dostępna tylko dla zalogowanych użytkowników.
-  </p>
+  <p>Zawartość dostępna tylko dla zalogowanych użytkowników.</p>
 <% end %>
