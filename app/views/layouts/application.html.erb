@@ -8,6 +8,21 @@
 </head>
 <body>
 
+<div id="header">
+    [ <%= link_to "home", root_path %> |
+    <% if user_signed_in? %>
+      signed in as
+      <%= content_tag :span, :style => "color: #785078;" do %>
+        <%= current_user.login %>
+      <% end %>
+      | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> ]
+    <% else %>
+      Not logged in. | 
+      <%= link_to "Sign in", new_user_session_path %> |
+      <%= link_to "Sign up", new_user_registration_path %> ]
+    <% end %>
+</div>
+
 <%= yield %>
 
 </body>
