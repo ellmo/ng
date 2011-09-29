@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Make Friends</th>
+  </tr>
+
+  <% @users.each_with_index do |user,index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= user.login %></td>
+      <td><%= link_to "befriend", friend_add_friend_path({:friend => user.id.to_s}) %></td>
+    <tr>
+  <% end %>
+</table>

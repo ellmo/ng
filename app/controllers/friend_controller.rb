@@ -3,6 +3,7 @@ class FriendController < ApplicationController
   end
 
   def add_friend
+    logger.info params.inspect
   end
 
   def remove_friend
