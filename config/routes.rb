@@ -5,6 +5,7 @@ Ng::Application.routes.draw do
   get "friend/index"
   get "friend/add_friend"
   get "friend/confirm_friend_request"
+  get "friend/confirm_friendship"
   get "friend/remove_friend"
 
   resources :posts

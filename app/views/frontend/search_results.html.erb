@@ -23,6 +23,8 @@
       <td>
         <% if user == current_user %>
           you can't befriend yourself
+        <% elsif current_user.confirmed_friends.include?( user) %>
+          you're friends already!
         <% elsif current_user.friends.include?( user ) %>
           friend request already sent
         <% else %>

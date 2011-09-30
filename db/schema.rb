@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110929174205) do
+ActiveRecord::Schema.define(:version => 20110930195527) do
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20110929174205) do
     t.integer  "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "confirmed"
+    t.boolean  "confirmed",  :default => false, :null => false
   end
 
   create_table "walls", :force => true do |t|

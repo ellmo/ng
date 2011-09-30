@@ -13,7 +13,9 @@ class User < ActiveRecord::Base
   has_many :friends, :through => :users_friends
 
   def confirmed_friends
-    self.friends.select {|f| f.confirmed }
+    friends1 = self.users_friends.select{|f| f.confirmed}.map {|f| f.friend}
+    friends2 = UsersFriend.find_all_by_friend_id_and_confirmed(self.id, true).map {|f| f.user}
+    return (friends1+friends2).uniq
   end
 
 end

@@ -17,7 +17,10 @@ class FriendController < ApplicationController
   end
 
   def confirm_friendship
-    
+    @friendship = UsersFriend.find(params[:friendship][:id]) 
+    @friendship.confirmed = true
+    @friendship.save
+    redirect_to root_path
   end
 
   def remove_friend

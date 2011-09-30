@@ -1,8 +1,25 @@
 <% if user_signed_in? %>
+
   <span style="color:green;">
     <%= notice %>
   </span>
+
+  <div style="width: 50%">
+    <% @friend_requests.each do |req| %>
+      <div style="border: 1px solid blue; margin: 8px;">
+        <span style="color:blue;">
+          <%= req.user.login + " wants to be friends with you!" %>
+        </span>
+        <%= form_tag friend_confirm_friendship_path, :method => :get do %>
+          <%= hidden_field "friendship", "id", :value => req.id %>
+          <%= button_to "confirm friendship", "submit_friendship" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
   <%= render :partial => "wall/wall", :object => @posts %> 
+
 <% else %>
   <p>You have to log in to see the contents</p>
 <% end %>

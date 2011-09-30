@@ -6,6 +6,7 @@ class FrontendController < ApplicationController
       @wall = current_user.wall
       @post = Post.new
       @posts = @wall.posts.find(:all, :order => "created_at DESC")
+      @friend_requests = UsersFriend.find_all_by_friend_id_and_confirmed(current_user.id, false)
     end
   end
 
