@@ -16,6 +16,9 @@ class FriendController < ApplicationController
     redirect_to(root_path, :notice => "friend request sent")
   end
 
+  def confirm_friendship
+  end
+
   def remove_friend
   end
 

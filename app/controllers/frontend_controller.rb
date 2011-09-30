@@ -2,8 +2,8 @@ class FrontendController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
 
   def index
-    if current_user
-      @wall = current_user.wall
+    if user_signed_in?
+      @post = Post.new
     end
   end
 
