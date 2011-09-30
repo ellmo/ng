@@ -1,8 +1,4 @@
 <% if user_signed_in? %>
-  <%= form_tag frontend_search_path, :method => :get do %>
-    <%= text_field "search", "s", :value => params[:s] %>
-    <%= button_to "search", "submit_search" %>
-  <% end %>
   <span style="color:green;">
     <%= notice %>
   </span>

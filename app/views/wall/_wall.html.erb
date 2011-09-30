@@ -1,4 +1,4 @@
-<%#= wall.inspect %>
+<h1>Viewing <%= @user ? (@user.login + "`s") : "your" %> wall</h1>
 <fieldset>
   <legend>NEW POST</legend>
   <%= simple_form_for(@post) do |f| %>

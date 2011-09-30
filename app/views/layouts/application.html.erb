@@ -9,6 +9,7 @@
 <body>
 
 <div id="header">
+  <span>
     [ <%= link_to "home", root_path %> |
     <% if user_signed_in? %>
       signed in as
@@ -21,6 +22,15 @@
       <%= link_to "Sign in", new_user_session_path %> |
       <%= link_to "Sign up", new_user_registration_path %> ]
     <% end %>
+  </span>
+  <span style="float:right;">
+    <%= form_tag frontend_search_path, :style => "width: 50%;", :method => :get do %>
+      <%= text_field "search", "s", :value => params[:s] %>
+      <div>
+        <%= button_to "search users", "submit_search" %>
+      </div>
+    <% end %>
+  </span>
 </div>
 
 <%= yield %>
