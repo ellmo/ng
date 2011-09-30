@@ -3,7 +3,9 @@ class FrontendController < ApplicationController
 
   def index
     if user_signed_in?
+      @wall = current_user.wall
       @post = Post.new
+      @posts = @wall.posts.find(:all, :order => "created_at DESC")
     end
   end
 

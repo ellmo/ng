@@ -4,15 +4,18 @@
   <%= simple_form_for(@post) do |f| %>
     <%= f.error_notification %>
 
-    <%= f.input :wall_id, :as => :hidden, :input_html => { :value => wall.id.to_s } %>
+    <%= f.input :wall_id, :as => :hidden, :input_html => { :value => @wall.id.to_s } %>
     <%= f.input :content, :as => :text, :label => false, :input_html => { :rows => 4 } %>
     <%= f.button :submit %>
   <% end %>
 </fieldset>
 
-<% wall.posts.each do |post| %>
-  <div style="width: 400px; border:1px dashed #202020;">
+<% wall.each do |post| %>
+  <div style="width: 400px; border:1px dashed #202020; margin-top: 12px;">
     <div style="width:100%; color:red; background-color:#BBBBBB;">
+      <div style="font-size: 9px;">
+        <%= post.created_at.strftime("%d-%b-%Y\n(%H:%M)") %>
+      </div>
       <%= post.user.login %>
     </div>
     <div>
