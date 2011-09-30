@@ -17,6 +17,7 @@ class FriendController < ApplicationController
   end
 
   def confirm_friendship
+    
   end
 
   def remove_friend

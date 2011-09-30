@@ -6,7 +6,7 @@
   <span style="color:green;">
     <%= notice %>
   </span>
-  <%= render :partial => "wall", :object => current_user.wall %> 
+  <%= render :partial => "wall/wall", :object => current_user.wall %> 
 <% else %>
-  <p>Zawartość dostępna tylko dla zalogowanych użytkowników.</p>
+  <p>You have to log in to see the contents</p>
 <% end %>
