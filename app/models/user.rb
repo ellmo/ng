@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
     return (friends1+friends2).uniq
   end
 
+  def friend_requests_pending
+    UsersFriend.find_all_by_friend_id_and_confirmed(self.id, false)
+  end
+
 end

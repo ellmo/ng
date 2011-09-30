@@ -154,7 +154,7 @@ DEPENDENCIES
   devise (= 1.4.2)
   factory_girl
   jquery-rails
-  mongrel (>= 1.2.0.pre2)
+  mongrel
   pg
   rails (= 3.0.9)
   rake (= 0.9.2)
