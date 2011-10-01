@@ -6,12 +6,12 @@ class FrontendController < ApplicationController
       @wall = current_user.wall
       @post = Post.new
       @posts = @wall.posts.find(:all, :order => "created_at DESC")
-      @friend_requests = UsersFriend.find_all_by_friend_id_and_confirmed(current_user.id, false)
+      @friend_requests = current_user.friend_requests_pending
     end
   end
 
   def search 
-    para = params["search"]#.reject! { |k,v| v.blank? }
+    para = params["search"]
     logger.info para.inspect
     redirect_to search_results_path(para)
   end

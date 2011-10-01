@@ -1,14 +1,16 @@
 <h1>Viewing <%= @user ? (@user.login + "`s") : "your" %> wall</h1>
-<fieldset>
-  <legend>NEW POST</legend>
-  <%= simple_form_for(@post) do |f| %>
-    <%= f.error_notification %>
+<% if (!@user or current_user.confirmed_friends.include?(@user)) %>
+  <fieldset>
+    <legend>NEW POST</legend>
+    <%= simple_form_for(@post) do |f| %>
+      <%= f.error_notification %>
 
-    <%= f.input :wall_id, :as => :hidden, :input_html => { :value => @wall.id.to_s } %>
-    <%= f.input :content, :as => :text, :label => false, :input_html => { :rows => 4 } %>
-    <%= f.button :submit %>
-  <% end %>
-</fieldset>
+      <%= f.input :wall_id, :as => :hidden, :input_html => { :value => @wall.id.to_s } %>
+      <%= f.input :content, :as => :text, :label => false, :input_html => { :rows => 4 } %>
+      <%= f.button :submit %>
+    <% end %>
+  </fieldset>
+<% end %>
 
 <% wall.each do |post| %>
   <div style="width: 400px; border:1px dashed #202020; margin-top: 12px;">
